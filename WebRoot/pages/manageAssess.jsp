@@ -1,33 +1,26 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-  <head>
-    <base href="<%=basePath%>">
-    
-    <title>定损单修改</title>
-    
-	
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>管理员-定 损 单 管 理</title>
 <!-- 公共css -->
-<%@include file="../common/commoncss.jsp"%>
+<%@include file="common/commoncss.jsp"%>
 <!-- 自定义css -->
-<link rel="stylesheet" type="text/css" href="<%=basePath%>css/updateAssess.css">
   </head>
   
   <body>
-    <div id="wrapper">
+   <div id="wrapper">
 <!-- 正文内容开始 -->
 		<div id="page-wrapper">
 			<div class="container-fluid">
 			<div class="tableTool">
-			<strong>定损单修改</strong>
+			<strong>查看定损单 </strong>
 			<div class="searchTool">
 			<select id="searchCondition">
 			<option value="caseid">案件号</option>
@@ -42,29 +35,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<tr>
 						    <th>序号</th>
 							<th>案件号</th>
+							<th>定损单号</th>
 							<th>车牌号</th>
-							<th>定损金额</th>
-							<th>申请时间</th>
-							<th>状 态</th>
+							<th>定损金额(¥)</th>
+							<th>定损时间</th>
 							<th>更多</th>
 						</tr>
 					</thead>
 					<tbody id="tbody_claimSchedule">
-						<tr><td class="noMessage"  colspan="7">没 有 任 何 信 息</td></tr>
+						<tr><td class="noMessage"  colspan="8">没 有 任 何 信 息</td></tr>
 					</tbody>
 				</table>
 				<div id="Pagination" class="pagination"></div>
-				<div id="hiddenresult" style="display:none"></div>			
+				<div id="hiddenresult" style="display:none"></div>
 			</div>
 			</div>
-			<%@include file="../common/common.jsp" %>
+			<%@include file="common/common.jsp" %>
 			</div>
   </body>
    <!-- 公共js -->
-    <%@include file="../common/commonjs.jsp"%>
+    <%@include file="common/commonjs.jsp"%>
  <!--   <!-- Common js -->
   <script src='<%=basePath%>js/common.js'></script>
-  <script src='<%=basePath%>js/commonAssessor.js'></script>
   <!--  自定义js-->
-  
+  <script src='<%=basePath%>js/manageAssess.js'></script>
 </html>

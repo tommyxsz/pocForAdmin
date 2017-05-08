@@ -1,5 +1,7 @@
 package com.poc.db.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 import com.poc.db.model.Assessor;
@@ -54,4 +56,6 @@ public interface AssessorMapper {
     int updateByPrimaryKey(Assessor record);
     
     Assessor assessorLogin(@Param("asorid")String asorid,@Param("aspassword")String aspassword);
+    
+    List<Assessor> showAssessors(Assessor assessor);
 }

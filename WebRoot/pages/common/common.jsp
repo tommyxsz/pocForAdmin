@@ -21,7 +21,7 @@ String basePath_common = request.getScheme()+"://"+request.getServerName()+":"+r
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">网上理赔系统</a>
+                <a class="navbar-brand" href="adminIndex.jsp">网上理赔系统</a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
@@ -127,42 +127,28 @@ String basePath_common = request.getScheme()+"://"+request.getServerName()+":"+r
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
              <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-                
-                    <li>
-                        <a id="assessorMenu" style="display:none" href="javascript:;" data-toggle="collapse" data-target="#assessor"><i class="fa fa-fw fa-dashboard"></i> 定损员功能 <i class="fa fa-fw fa-caret-right"></i></a>
-                        <ul id="assessor" class="collapse">
                             <li>
-                                <a href="<%=basePath_common%>pages/assessor/createAssess.jsp"><i class="fa fa-fw fa-coffee"></i>创 建 定 损 单</a>
+                                <a href="<%=basePath_common%>pages/manageUsers.jsp"><i class="fa fa-fw fa-coffee"></i>用 户 管 理</a>
                             </li>
                             <li>
-                                <a href="<%=basePath_common%>pages/assessor/showAssess.jsp"><i class="fa fa-fw fa-bar-chart-o"></i>查 看 已 定 损</a>
-                            </li>
-                            <%-- <li>
-                                <a href="<%=basePath_common%>pages/assessor/updateAssess.jsp"><i class="fa fa-fw fa-table"></i>定 损 单 修 改</a>
-                            </li> --%>
-                        </ul>
-                    </li>
-                    
-                    <li>
-                        <a id="auditorMenu" style="display:none" href="javascript:;" data-toggle="collapse" data-target="#auditor"><i class="fa fa-fw fa-arrows-v"></i> 审批员功能 <i class="fa fa-fw fa-caret-right"></i></a>
-                        <ul id="auditor" class="collapse" >
-                            <li>
-                                <a href="<%=basePath_common%>pages/auditor/showUnauditedClaim.jsp"><i class="fa fa-fw fa-coffee"></i>待 审 批 内 容</a>
+                                <a href="<%=basePath_common%>pages/manageAssessors.jsp"><i class="fa fa-fw fa-bar-chart-o"></i>定 损 员 管 理</a>
                             </li>
                             <li>
-                                <a href="<%=basePath_common%>pages/auditor/changeAuditedClaim.jsp"><i class="fa fa-fw fa-bar-chart-o"></i>待 定 案 件 修 改</a>
+                                <a href="<%=basePath_common%>pages/manageAuditors.jsp"><i class="fa fa-fw fa-table"></i>审 批 员 管 理</a>
                             </li>
                             <li>
-                                <a href="<%=basePath_common%>pages/auditor/showAuditedClaim.jsp"><i class="fa fa-fw fa-table"></i>审 批 查 看</a>
+                                <a href="<%=basePath_common%>pages/managePolicy.jsp"><i class="fa fa-fw fa-table"></i>保 单 管 理</a>
+                            </li>
+                            <li>
+                                <a href="<%=basePath_common%>pages/manageAssess.jsp"><i class="fa fa-fw fa-table"></i>定 损 单 管 理</a>
+                            </li>
+                            <li>
+                                <a href="<%=basePath_common%>pages/manageClaim.jsp"><i class="fa fa-fw fa-table"></i>理 赔 单 管 理</a>
+                            </li>
+                            <li>
+                                <a href="<%=basePath_common%>pages/dataStatistics.jsp"><i class="fa fa-fw fa-table"></i>数 据 统 计</a>
                             </li>
                         </ul>
-                    </li>
-                    
-                    <li>
-                        <a href=""><i class="fa fa-fw fa-dashboard"></i>进 入 问 答 室</a>
-                    </li>
-                    
-                </ul>
             </div>
             <!-- /.navbar-collapse -->
         </nav>

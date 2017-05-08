@@ -1,26 +1,26 @@
 $(function(){
-	changeAuditedClaim();
+	showPolicy();
 });
 
-//查看为审批的理赔单
-var changeAuditedClaim =function(){
+//查看所有保单
+var showPolicy =function(){
 	 $.ajax({
-		 url:"/pocForStuff/auditor/changeAuditedClaim",
+		 url:"/pocForAdmin/showPolicy",
 		 type:"POST",
 		 dataType:"json",
 		 success:function(data){
 			 if(data!=""){
 				 var tableInfo ="";
 				 var i=1;
-					$.each(data,function(i,claim){
+					$.each(data,function(i,Policy){
 						i++;
 						tableInfo +="<tr><td>" +i+"</td>"+
-						"<td>"+claim['caseid'] +"</td>"+
-						"<td>"+claim['a1id'] +"</td>"+
-						"<td>"+claim['a2id'] +"</td>"+
-						"<td>"+claim['plateNumber'] +"</td>"+
-						"<td>"+claim['caseTime'] +"</td>"+
-						"<td><a href='#'>查 看</a></td></tr>";
+						"<td>"+Policy['caseid'] +"</td>"+
+						"<td>"+Policy['asid'] +"</td>"+
+						"<td>"+Policy['plateNumber'] +"</td>"+
+						"<td>"+"¥"+Policy['sum'] +"</td>"+
+						"<td>"+Policy['PolicyTime'] +"</td>"+
+						"<td><a href='#'>详 情</a></td></tr>";
 					});
 					$("#hiddenresult").html(tableInfo);
 					$("#Pagination").pagination(data.length, {
