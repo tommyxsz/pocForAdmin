@@ -54,4 +54,6 @@ public interface PolicyMapper {
     int updateByPrimaryKey(Policy record);
     
     List<Policy> showAllPolicyByUserId(String uid);
+    
+    List<Policy> showPolicies(Policy policy);
 }

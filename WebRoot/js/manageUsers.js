@@ -1,25 +1,25 @@
 $(function(){
-	showAssessed();
+	showUser();
 });
 
-//查看已定损的内容
-var showAssessed =function(){
+//查看所有保单
+var showUser =function(){
 	 $.ajax({
-		 url:"/pocForStuff/assessor/showAssessed",
+		 url:"/pocForAdmin/showUser",
 		 type:"POST",
 		 dataType:"json",
 		 success:function(data){
 			 if(data!=""){
 				 var tableInfo ="";
 				 var i=1;
-					$.each(data,function(i,assess){
+					$.each(data,function(i,User){
 						i++;
 						tableInfo +="<tr><td>" +i+"</td>"+
-						"<td>"+assess['caseid'] +"</td>"+
-						"<td>"+assess['asid'] +"</td>"+
-						"<td>"+assess['plateNumber'] +"</td>"+
-						"<td>"+"¥"+assess['sum'] +"</td>"+
-						"<td>"+assess['assessTime'] +"</td>"+
+						"<td>"+User['caseid'] +"</td>"+
+						"<td>"+User['asid'] +"</td>"+
+						"<td>"+User['plateNumber'] +"</td>"+
+						"<td>"+"¥"+User['sum'] +"</td>"+
+						"<td>"+User['UserTime'] +"</td>"+
 						"<td><a href='#'>详 情</a></td></tr>";
 					});
 					$("#hiddenresult").html(tableInfo);

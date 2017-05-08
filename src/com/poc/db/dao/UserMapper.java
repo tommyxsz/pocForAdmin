@@ -1,6 +1,9 @@
 package com.poc.db.dao;
 
 import com.poc.db.model.User;
+
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface UserMapper {
@@ -53,5 +56,7 @@ public interface UserMapper {
     int updateByPrimaryKey(User record);
         
     User userLogin(@Param("uid")String uid,@Param("upassword")String upassword);
+    
+    List<User> showUsers(User user);
     
 }

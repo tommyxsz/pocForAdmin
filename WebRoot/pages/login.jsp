@@ -38,10 +38,10 @@ String base_Path = request.getScheme()+"://"+request.getServerName()+":"+request
                     <i class="fa fa-lock"></i>
                     <a href="#" class="fa fa-question-circle"></a>
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <input type="radio" id="actor" name ='actor' value="auditor"/>审批员
                     <input type="radio" id="actor" name ='actor' value="assessor"/>定损员
-                </div>
+                </div> -->
                 <div class="form-group">
                     <div class="main-checkbox">
                         <input type="checkbox" value="None" id="checkbox1" name="check"/>

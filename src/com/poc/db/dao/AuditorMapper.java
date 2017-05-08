@@ -1,5 +1,7 @@
 package com.poc.db.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 import com.poc.db.model.Auditor;
@@ -22,4 +24,6 @@ public interface AuditorMapper {
     int insertSelective(Auditor record);
     
     Auditor auditorLogin(@Param("auid")String auid,@Param("aupassword")String aupassword);
+    
+    List<Auditor> showAuditors(Auditor auditor);
 }

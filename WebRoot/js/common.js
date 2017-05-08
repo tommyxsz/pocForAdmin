@@ -9,7 +9,7 @@ function common_getLoginedId(){
 	loginedId = $.cookie("loginedId");
 	actor = $.cookie("actor");
 	if(loginedId==null){
-		location.href = "../../pocForStuff/pages/login.jsp";
+		location.href = "../../pocForAdmin/pages/login.jsp";
 	}else{
 		$("#loginedId").html(" "+loginedId+" ");
 		if(actor=="assessor"){

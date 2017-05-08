@@ -28,6 +28,8 @@ String basePath_js = request.getScheme()+"://"+request.getServerName()+":"+reque
   <script src='<%=basePath_js%>/js/common/laydate.dev.js'></script>
   <!-- jquery 日历 -->
   <script src='<%=basePath_js%>/js/common/jquery.form.js'></script>
+  <!-- echarts表格制作 -->
+  <script src='<%=basePath_js%>/js/common/echarts.min.js'></script>
   <!--     float-->
   <%-- <script type="text/javascript" src='<%=basePath%>/js/plugins/flot/excanvas.min.js'></script>
   <script type="text/javascript" src='<%=basePath%>/js/plugins/flot/flot-data.js'></script>

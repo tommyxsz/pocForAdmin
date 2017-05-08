@@ -28,20 +28,18 @@ function formSubmit(){
 	submitHandler:function(){
 		var id= $("#id").val().trim();
 		var password= $("#password").val().trim();
-		var actor = $("#actor:checked").val().trim();
 		$.ajax({
-			url:"/pocForStuff/login",
+			url:"/pocForAdmin/login",
 			type:"POST",
 			/*dataType:"json",*/
 			data:{
 				id:id,
 				password:password,
-				actor:actor			
 			},
 			success:function(data){
 				if(data=="success"){
 					$("#message").hide();
-					location.href = "../../pocForStuff/pages/stuffIndex.jsp";
+					location.href = "../../pocForAdmin/pages/adminIndex.jsp";
 				}
 				if(data=="fail"){
 					$("#message").show();
