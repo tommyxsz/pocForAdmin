@@ -5,7 +5,7 @@ $(function(){
 //查看所有保单
 var showClaim =function(){
 	 $.ajax({
-		 url:"/pocForAdmin/showClaim",
+		 url:"/pocForAdmin/admin/showClaim",
 		 type:"POST",
 		 dataType:"json",
 		 success:function(data){
@@ -15,11 +15,10 @@ var showClaim =function(){
 					$.each(data,function(i,Claim){
 						i++;
 						tableInfo +="<tr><td>" +i+"</td>"+
-						"<td>"+Claim['caseid'] +"</td>"+
-						"<td>"+Claim['asid'] +"</td>"+
+						"<td>"+Claim['id'] +"</td>"+
+						"<td>"+Claim['recognizee'] +"</td>"+
 						"<td>"+Claim['plateNumber'] +"</td>"+
-						"<td>"+"¥"+Claim['sum'] +"</td>"+
-						"<td>"+Claim['ClaimTime'] +"</td>"+
+						"<td>"+Claim['createTime'] +"</td>"+
 						"<td><a href='#'>详 情</a></td></tr>";
 					});
 					$("#hiddenresult").html(tableInfo);

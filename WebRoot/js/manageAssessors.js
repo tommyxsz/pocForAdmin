@@ -5,7 +5,7 @@ $(function(){
 //查看所有保单
 var showAssessor =function(){
 	 $.ajax({
-		 url:"/pocForAdmin/showAssessor",
+		 url:"/pocForAdmin/admin/showAssessor",
 		 type:"POST",
 		 dataType:"json",
 		 success:function(data){
@@ -15,11 +15,10 @@ var showAssessor =function(){
 					$.each(data,function(i,Assessor){
 						i++;
 						tableInfo +="<tr><td>" +i+"</td>"+
-						"<td>"+Assessor['caseid'] +"</td>"+
-						"<td>"+Assessor['asid'] +"</td>"+
-						"<td>"+Assessor['plateNumber'] +"</td>"+
-						"<td>"+"¥"+Assessor['sum'] +"</td>"+
-						"<td>"+Assessor['AssessorTime'] +"</td>"+
+						"<td>"+Assessor['asorid'] +"</td>"+
+						"<td>"+Assessor['asname'] +"</td>"+
+						"<td>"+Assessor['assex'] +"</td>"+
+						"<td>"+Assessor['mobile'] +"</td>"+
 						"<td><a href='#'>详 情</a></td></tr>";
 					});
 					$("#hiddenresult").html(tableInfo);

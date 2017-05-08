@@ -43,6 +43,12 @@
     where recognizee = #{uid,jdbcType=VARCHAR} order by plate_Number
   </select>
   
+    <select id="showPolicies" resultMap="BaseResultMap" parameterType="java.lang.String" >
+     select 
+    policyid,id,policy_Type, recognizee,plate_Number,SUM,DATE_FORMAT(start_Time,'%Y年%m月%d日')start_Time,DATE_FORMAT(end_Time,'%Y年%m月%d日')end_Time
+    from policy po
+  </select>
+  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     <!--
       WARNING - @mbggenerated

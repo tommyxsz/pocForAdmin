@@ -5,7 +5,7 @@ $(function(){
 //查看所有保单
 var showAuditor =function(){
 	 $.ajax({
-		 url:"/pocForAdmin/showAuditor",
+		 url:"/pocForAdmin/admin/showAuditor",
 		 type:"POST",
 		 dataType:"json",
 		 success:function(data){
@@ -15,11 +15,9 @@ var showAuditor =function(){
 					$.each(data,function(i,Auditor){
 						i++;
 						tableInfo +="<tr><td>" +i+"</td>"+
-						"<td>"+Auditor['caseid'] +"</td>"+
-						"<td>"+Auditor['asid'] +"</td>"+
-						"<td>"+Auditor['plateNumber'] +"</td>"+
-						"<td>"+"¥"+Auditor['sum'] +"</td>"+
-						"<td>"+Auditor['AuditorTime'] +"</td>"+
+						"<td>"+Auditor['auid'] +"</td>"+
+						"<td>"+Auditor['name'] +"</td>"+
+						"<td>"+Auditor['mobile'] +"</td>"+
 						"<td><a href='#'>详 情</a></td></tr>";
 					});
 					$("#hiddenresult").html(tableInfo);

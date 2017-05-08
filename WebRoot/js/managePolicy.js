@@ -5,7 +5,7 @@ $(function(){
 //查看所有保单
 var showPolicy =function(){
 	 $.ajax({
-		 url:"/pocForAdmin/showPolicy",
+		 url:"/pocForAdmin/admin/showPolicy",
 		 type:"POST",
 		 dataType:"json",
 		 success:function(data){
@@ -15,11 +15,11 @@ var showPolicy =function(){
 					$.each(data,function(i,Policy){
 						i++;
 						tableInfo +="<tr><td>" +i+"</td>"+
-						"<td>"+Policy['caseid'] +"</td>"+
-						"<td>"+Policy['asid'] +"</td>"+
+						"<td>"+Policy['policyid'] +"</td>"+
+						"<td>"+Policy['policyType'] +"</td>"+
 						"<td>"+Policy['plateNumber'] +"</td>"+
 						"<td>"+"¥"+Policy['sum'] +"</td>"+
-						"<td>"+Policy['PolicyTime'] +"</td>"+
+						"<td>"+Policy['recognizee'] +"</td>"+
 						"<td><a href='#'>详 情</a></td></tr>";
 					});
 					$("#hiddenresult").html(tableInfo);

@@ -6,7 +6,7 @@ String base_Path = request.getScheme()+"://"+request.getServerName()+":"+request
 <html>
   <head>
     
-    <title>网上理赔系统-员工登录</title>
+    <title>网上理赔系统-管理员登录</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -26,7 +26,7 @@ String base_Path = request.getScheme()+"://"+request.getServerName()+":"+request
     <div class="row">
         <div class="form-center col-md-offset-3 col-md-6">
             <form id="loginForm" class="form-horizontal" action="" method="POST">
-                <span class="heading">员工登录</span>
+                <span class="heading">管理员登录</span>
                 <strong id="message" class="wrongmessage">账 号 或 者 密 码 错 误</strong>
                 <div class="form-group">
                      <!-- <input type="email" class="form-control" id="inputEmail3" placeholder="用户名或电子邮件"> -->

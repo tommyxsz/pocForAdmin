@@ -5,7 +5,7 @@ $(function(){
 //查看所有保单
 var showAssess =function(){
 	 $.ajax({
-		 url:"/pocForAdmin/showAssess",
+		 url:"/pocForAdmin/admin/showAssess",
 		 type:"POST",
 		 dataType:"json",
 		 success:function(data){

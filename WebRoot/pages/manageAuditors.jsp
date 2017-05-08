@@ -8,7 +8,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>管理员-定 损 单 管 理</title>
+<title>管理员-审 批 员 管 理</title>
 <!-- 公共css -->
 <%@include file="common/commoncss.jsp"%>
 <!-- 自定义css -->
@@ -20,7 +20,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div id="page-wrapper">
 			<div class="container-fluid">
 			<div class="tableTool">
-			<strong>查看定损单 </strong>
+			<strong>审 批 员 管 理</strong>
 			<div class="searchTool">
 			<select id="searchCondition">
 			<option value="caseid">案件号</option>
@@ -34,11 +34,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<thead>
 						<tr>
 						    <th>序号</th>
-							<th>案件号</th>
-							<th>定损单号</th>
-							<th>车牌号</th>
-							<th>定损金额(¥)</th>
-							<th>定损时间</th>
+							<th>账号</th>
+							<th>姓名</th>
+							<th>联系电话</th>
 							<th>更多</th>
 						</tr>
 					</thead>
@@ -58,5 +56,5 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  <!--   <!-- Common js -->
   <script src='<%=basePath%>js/common.js'></script>
   <!--  自定义js-->
-  <script src='<%=basePath%>js/manageAssess.js'></script>
+  <script src='<%=basePath%>js/manageAuditors.js'></script>
 </html>

@@ -8,7 +8,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>管理员-定 损 单 管 理</title>
+<title>管理员-数据统计</title>
 <!-- 公共css -->
 <%@include file="common/commoncss.jsp"%>
 <!-- 自定义css -->

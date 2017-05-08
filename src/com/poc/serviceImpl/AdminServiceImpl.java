@@ -6,6 +6,8 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +18,6 @@ import com.poc.db.dao.AuditorMapper;
 import com.poc.db.dao.ClaimMapper;
 import com.poc.db.dao.PolicyMapper;
 import com.poc.db.dao.UserMapper;
-import com.poc.db.model.Admin;
 import com.poc.db.model.Assess;
 import com.poc.db.model.Assessor;
 import com.poc.db.model.Auditor;
@@ -30,6 +31,8 @@ import com.poc.util.JSONUtils;
 
 @Service
 public class AdminServiceImpl implements AdminService{
+	
+	private static final Logger	LOGGER	= LoggerFactory.getLogger(AdminServiceImpl.class);
 @Autowired
 private UserMapper userMapper;
 
@@ -72,6 +75,7 @@ private AdminMapper adminMapper;
 
 	@Override
 	public List<Assess> showAssess(Assess assess) {
+		LOGGER.error(assessMapper.showAssess(assess).get(0).toString());
 		// TODO Auto-generated method stub
 		return assessMapper.showAssess(assess);
 	}

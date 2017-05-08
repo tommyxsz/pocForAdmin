@@ -1,5 +1,7 @@
 package com.poc.ctrl;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,47 +16,51 @@ import com.poc.db.model.Claim;
 import com.poc.db.model.Policy;
 import com.poc.db.model.User;
 import com.poc.service.AdminService;
+import com.poc.util.JSONUtils;
 
 @Controller
 public class AdminController {
-
+	
+	private static final Logger	LOGGER	= LoggerFactory.getLogger(AdminController.class);
+	
 	@Autowired
 	private AdminService adminService;
 	
 	@ResponseBody
 	@RequestMapping(value="/admin/showAssess", produces = "text/html;charset=UTF-8",method = RequestMethod.POST)
 	public String showAssess(Assess assess){
-		return JSON.toJSONString(adminService.showAssess(assess));
+		LOGGER.error(JSONUtils.toJSONString(adminService.showAssess(assess)));
+		return JSONUtils.toJSONString(adminService.showAssess(assess));
 	}  
 	
 	@ResponseBody
 	@RequestMapping(value="/admin/showUser", produces = "text/html;charset=UTF-8",method = RequestMethod.POST)
 	public String showUsers(User user){
-		return JSON.toJSONString(adminService.showUsers(user));
+		return JSONUtils.toJSONString(adminService.showUsers(user));
 	}  
 	
 	@ResponseBody
 	@RequestMapping(value="/admin/showAssessor", produces = "text/html;charset=UTF-8",method = RequestMethod.POST)
 	public String showAssessors(Assessor assessor){
-		return JSON.toJSONString(adminService.showAssessors(assessor));
+		return JSONUtils.toJSONString(adminService.showAssessors(assessor));
 	}  
 	
 	@ResponseBody
 	@RequestMapping(value="/admin/showAuditor", produces = "text/html;charset=UTF-8",method = RequestMethod.POST)
 	public String showAuditors(Auditor auditor){
-		return JSON.toJSONString(adminService.showAuditors(auditor));
+		return JSONUtils.toJSONString(adminService.showAuditors(auditor));
 	}  
 	
 	@ResponseBody
 	@RequestMapping(value="/admin/showClaim", produces = "text/html;charset=UTF-8",method = RequestMethod.POST)
 	public String showClaims(Claim claim){
-		return JSON.toJSONString(adminService.showClaims(claim));
+		return JSONUtils.toJSONString(adminService.showClaims(claim));
 	}  
 	
 	@ResponseBody
-	@RequestMapping(value="/admin/showPolicie", produces = "text/html;charset=UTF-8",method = RequestMethod.POST)
+	@RequestMapping(value="/admin/showPolicy", produces = "text/html;charset=UTF-8",method = RequestMethod.POST)
 	public String showPolicies(Policy policy){
-		return JSON.toJSONString(adminService.showPolicies(policy));
+		return JSONUtils.toJSONString(adminService.showPolicies(policy));
 	}  
 	
 	

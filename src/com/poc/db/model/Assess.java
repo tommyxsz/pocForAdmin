@@ -352,4 +352,13 @@ public class Assess {
     public void setDescibe(String descibe) {
         this.descibe = descibe;
     }
+
+	@Override
+	public String toString() {
+		return "Assess [asid=" + asid + ", id=" + id + ", caseid=" + caseid + ", plateNumber=" + plateNumber + ", sum="
+				+ sum + ", photo=" + photo + ", applyUser=" + applyUser + ", applyUserPhone=" + applyUserPhone
+				+ ", assessor=" + assessor + ", assessTime=" + assessTime + ", descibe=" + descibe + "]";
+	}
+    
+    
 }
