@@ -29,7 +29,6 @@ public class AdminController {
 	@ResponseBody
 	@RequestMapping(value="/admin/showAssess", produces = "text/html;charset=UTF-8",method = RequestMethod.POST)
 	public String showAssess(Assess assess){
-		LOGGER.error(JSONUtils.toJSONString(adminService.showAssess(assess)));
 		return JSONUtils.toJSONString(adminService.showAssess(assess));
 	}  
 	

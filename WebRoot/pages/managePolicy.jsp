@@ -23,7 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<strong>保 单 管 理</strong>
 			<div class="searchTool">
 			<select id="searchCondition">
-			<option value="caseid">案件号</option>
+			<option value="caseid">保单号</option>
 			<option value="plateNumber">车牌号</option>
 			</select>
 			<input id="searchContent" type="text" placeholder="请输入搜索的内容">

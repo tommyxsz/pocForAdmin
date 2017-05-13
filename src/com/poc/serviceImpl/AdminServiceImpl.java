@@ -75,7 +75,6 @@ private AdminMapper adminMapper;
 
 	@Override
 	public List<Assess> showAssess(Assess assess) {
-		LOGGER.error(assessMapper.showAssess(assess).get(0).toString());
 		// TODO Auto-generated method stub
 		return assessMapper.showAssess(assess);
 	}

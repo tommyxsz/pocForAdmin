@@ -23,8 +23,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<strong>审 批 员 管 理</strong>
 			<div class="searchTool">
 			<select id="searchCondition">
-			<option value="caseid">案件号</option>
-			<option value="plateNumber">车牌号</option>
+			<option value="id">账号</option>
+			<option value="name">姓名</option>
+			<option value="mobile">手机号</option>
 			</select>
 			<input id="searchContent" type="text" placeholder="请输入搜索的内容">
 			<button id="btn_Search" class="red icon-search btn btn-primary">搜索</button>

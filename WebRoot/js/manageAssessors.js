@@ -17,9 +17,9 @@ var showAssessor =function(){
 						tableInfo +="<tr><td>" +i+"</td>"+
 						"<td>"+Assessor['asorid'] +"</td>"+
 						"<td>"+Assessor['asname'] +"</td>"+
-						"<td>"+Assessor['assex'] +"</td>"+
+						"<td>"+Assessor['sex'] +"</td>"+
 						"<td>"+Assessor['mobile'] +"</td>"+
-						"<td><a href='#'>详 情</a></td></tr>";
+						"<td><a href="+Assessor['id']+">详 情</a></td></tr>";
 					});
 					$("#hiddenresult").html(tableInfo);
 					$("#Pagination").pagination(data.length, {
