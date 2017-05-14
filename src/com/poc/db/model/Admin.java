@@ -128,4 +128,9 @@ public class Admin {
     public void setAname(String aname) {
         this.aname = aname;
     }
+    
+    public Admin searchAdmin(String SearchCondition,String searchContent){
+    	
+    	return null;
+    }
 }

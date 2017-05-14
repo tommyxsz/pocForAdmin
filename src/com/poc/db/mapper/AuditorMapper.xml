@@ -41,7 +41,18 @@
     -->
     select 
     <include refid="Base_Column_List" />
-    from auditor
+    from auditor 
+    where 1=1
+    <if test="auid!=null">
+    and auid = #{auid,jdbcType=VARCHAR}
+    </if>
+    <if test="name!=null">
+    and name like concat(concat('%',#{name}),'%')
+    </if>
+    <if test="mobile!=null">
+    and mobile = #{mobile,jdbcType=VARCHAR}
+    </if>
+    
   </select>
   
   <select id="auditorLogin" parameterType="java.lang.String" resultMap="BaseResultMap">

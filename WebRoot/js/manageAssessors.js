@@ -1,5 +1,8 @@
 $(function(){
 	showAssessor();
+	$("#btn_Search").click(function(){
+		searchAssessor();
+	});
 });
 
 //查看所有保单
@@ -16,7 +19,7 @@ var showAssessor =function(){
 						i++;
 						tableInfo +="<tr><td>" +i+"</td>"+
 						"<td>"+Assessor['asorid'] +"</td>"+
-						"<td>"+Assessor['asname'] +"</td>"+
+						"<td>"+Assessor['name'] +"</td>"+
 						"<td>"+Assessor['sex'] +"</td>"+
 						"<td>"+Assessor['mobile'] +"</td>"+
 						"<td><a href="+Assessor['id']+">详 情</a></td></tr>";
@@ -43,3 +46,46 @@ var pageselectCallback =function(page_index, jq){
 	$("#tbody_claimSchedule").empty().html(new_content); //装载对应分页的内容
 	return false;
 };
+
+var searchAssessor = function(){
+	var searchCondition = $("#searchCondition").val().trim();
+	var searchContent = $("#searchContent").val().trim();
+	if(searchContent==""||searchContent==null){
+		showAssessor();
+	}
+	else{
+		 $.ajax({
+			 url:"/pocForAdmin/admin/showAssessor",
+			 type:"POST",
+			 data:searchCondition+"="+searchContent,
+			 dataType:"json",
+			 success:function(data){
+				 if(data==""){
+					 $("#tbody_claimSchedule").empty()
+				 }
+				 if(data!=""){
+					 var tableInfo ="";
+					 var i=1;
+						$.each(data,function(i,Assessor){
+							i++;
+							tableInfo +="<tr><td>" +i+"</td>"+
+							"<td>"+Assessor['asorid'] +"</td>"+
+							"<td>"+Assessor['name'] +"</td>"+
+							"<td>"+Assessor['sex'] +"</td>"+
+							"<td>"+Assessor['mobile'] +"</td>"+
+							"<td><a href="+Assessor['id']+">详 情</a></td></tr>";
+						});
+						$("#hiddenresult").html(tableInfo);
+						$("#Pagination").pagination(data.length, {
+							prev_text: "« 上一页",
+			                next_text: "下一页 »",
+							num_edge_entries: 1, //边缘页数
+							num_display_entries: 4, //主体页数
+							callback: pageselectCallback,
+							items_per_page:10,//每页显示10项
+						});
+				 }
+			 } 
+		 })
+	}
+}
