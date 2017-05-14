@@ -28,4 +28,5 @@ public interface AdminService {
 	List<Policy> showPolicies(Policy policy);
 	
 	String adminLogin(String adminId,String adminPassword,HttpServletResponse response);
+	
 }
