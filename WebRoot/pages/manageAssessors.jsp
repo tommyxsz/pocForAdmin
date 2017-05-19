@@ -29,6 +29,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</select>
 			<input id="searchContent" type="text" placeholder="请输入搜索的内容">
 			<button id="btn_Search" class="red icon-search btn btn-primary">搜索</button>
+			<button id="btn_Add" class="yellow icon-search btn btn-primary">新增</button>
 			</div>
 			</div>
 			<table class="table table-striped table-bordered table-hover">

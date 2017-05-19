@@ -21,7 +21,7 @@ select {
    height: 34px;
    /* -webkit-appearance: none; for chrome */
 }
-#btn_Search{
+#btn_Search,#btn_Add{
 	margin-bottom:3px;
 }
 #searchContent{
@@ -38,4 +38,11 @@ float:right;
 }
 .pagination{
    float:right;
+}
+#dialog{
+	width:auto !important;
+}
+textarea{
+	width:480px !important;
+	height:100px;
 }

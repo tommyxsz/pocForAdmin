@@ -3,6 +3,9 @@ $(function(){
 	$("#btn_Search").click(function(){
 		searchAssess();
 	});
+	$("#btn_Add").click(function(){
+		$("#dialog").dialog();
+	});
 });
 
 //查看所有保单
