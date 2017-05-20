@@ -4,7 +4,7 @@ $(function(){
 		searchAssess();
 	});
 	$("#btn_Add").click(function(){
-		$("#dialog").dialog();
+		window.open("/pocForAdmin/pages/createAssess.jsp"); 
 	});
 });
 
@@ -26,7 +26,7 @@ var showAssess =function(){
 						"<td>"+assess['plateNumber'] +"</td>"+
 						"<td>"+"¥"+assess['sum'] +"</td>"+
 						"<td>"+assess['assessTime'] +"</td>"+
-						"<td><a href='#'>详 情</a></td></tr>";
+						"<td><a href='#' onclick='updateAssess(this)' abc='"+assess['asid']+"'>详 情</a></td></tr>";
 					});
 					$("#hiddenresult").html(tableInfo);
 					$("#Pagination").pagination(data.length, {
@@ -78,7 +78,7 @@ var searchAssess = function(){
 						"<td>"+assess['plateNumber'] +"</td>"+
 						"<td>"+"¥"+assess['sum'] +"</td>"+
 						"<td>"+assess['assessTime'] +"</td>"+
-						"<td><a href='#'>详 情</a></td></tr>";
+						"<td><a href='#' onclick='updateAssess(this)' abc='"+assess['asid']+"'>详 情</a></td></tr>";
 					});
 					$("#hiddenresult").html(tableInfo);
 					$("#Pagination").pagination(data.length, {
@@ -93,4 +93,9 @@ var searchAssess = function(){
 		 } 
 	 })
 	}
+}
+
+var updateAssess = function(a){
+	var asid = $(a).attr("abc");
+	window.open("/pocForAdmin/pages/createAssess.jsp?asid="+asid); 
 }
