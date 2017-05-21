@@ -93,5 +93,27 @@ h2 {
 	display:none;
 }
 .form-control{
-	background-color:rgb(247, 247, 247)
+	background-color:rgb(247, 247, 247);
+}
+#form div .form-control{
+	padding:0;
+	width:90%;
+	background-color:#fff
+}
+#form div .form-control input{
+	margin-left:5px;
+}
+#form div .form-control label{
+	width:80px;
+	text-align:center
+}
+div[aria-describedby="dialog"]{
+	width:400px !important;
+}
+.btn-group{
+	text-align:center;
+	margin-left:45%;
+}
+#form .margin-repair{
+	margin-left:9px !important;
 }

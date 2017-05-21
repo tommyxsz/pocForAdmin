@@ -4,7 +4,7 @@ $(function(){
 		searchAssess();
 	});
 	$("#btn_Add").click(function(){
-		window.open("/pocForAdmin/pages/createAssess.jsp"); 
+		window.open("/pocForAdmin/pages/changeAssess.jsp"); 
 	});
 });
 
@@ -97,5 +97,5 @@ var searchAssess = function(){
 
 var updateAssess = function(a){
 	var asid = $(a).attr("abc");
-	window.open("/pocForAdmin/pages/createAssess.jsp?asid="+asid); 
+	window.open("/pocForAdmin/pages/changeAssess.jsp?asid="+asid); 
 }

@@ -3,6 +3,60 @@ $(function(){
 	$("#btn_Search").click(function(){
 		searchAuditor();
 	});
+	
+	$("#btn_Add").click(function(){
+		$("#form")[0].reset();
+		 $("#btn_Update").hide();
+		 $("#btn_Delete").hide();
+		 $("#btn_Insert").show();
+		 $("#dialog").dialog();
+	});
+	
+	
+	$("#btn_Insert").click(function(){
+		$.ajax({
+			url:"/pocForAdmin/admin/insertAuditor",
+			type:"POST",
+			data:$("#form").serialize(),
+			success:function(){
+				alert("添加成功");
+				showAuditor();
+			},
+			error:function(data,XMLHttpRequest, textStatus, errorThrow){
+				alert("账户已经存在了,请更换");
+	    },
+			
+		});
+	});
+	
+	$("#btn_Update").click(function(){
+		$.ajax({
+			url:"/pocForAdmin/admin/updateAuditor",
+			type:"POST",
+			data:$("#form").serialize(),
+			success:function(){
+				alert("修改成功");
+				selectAuditor();
+				showAuditor();
+			},
+			error:function(data,XMLHttpRequest, textStatus, errorThrow){
+				alert("账户已经存在了,请更换");
+			}
+		});
+	});
+	
+	$("#btn_Delete").click(function(){
+		$.ajax({
+			url:"/pocForAdmin/admin/delAuditor",
+			type:"POST",
+			data:$("#form").serialize(),
+			success:function(){
+				alert("删除成功");
+				$("button[title='close']").click();
+				showAuditor();
+			},
+	});
+	});
 });
 
 //查看所有保单
@@ -21,7 +75,7 @@ var showAuditor =function(){
 						"<td>"+Auditor['auid'] +"</td>"+
 						"<td>"+Auditor['name'] +"</td>"+
 						"<td>"+Auditor['mobile'] +"</td>"+
-						"<td><a href='#'>详 情</a></td></tr>";
+						"<td><a href='#' onclick='selectAuditor(this)' abc='"+Auditor['auid']+"'>详 情</a></td></tr>";
 					});
 					$("#hiddenresult").html(tableInfo);
 					$("#Pagination").pagination(data.length, {
@@ -71,7 +125,7 @@ var searchAuditor =function(){
 						"<td>"+Auditor['auid'] +"</td>"+
 						"<td>"+Auditor['name'] +"</td>"+
 						"<td>"+Auditor['mobile'] +"</td>"+
-						"<td><a href='#'>详 情</a></td></tr>";
+						"<td><a href='#' onclick='selectAuditor(this)' abc='"+Auditor['auid']+"'>详 情</a></td></tr>";
 					});
 					$("#hiddenresult").html(tableInfo);
 					$("#Pagination").pagination(data.length, {
@@ -85,5 +139,33 @@ var searchAuditor =function(){
 			 }
 		 } 
 	 })
+	}
+}
+
+var selectAuditor = function(a){
+	var auid= $(a).attr("abc");
+	if( auid !=null){
+		$.ajax({
+			url:"/pocForAdmin/admin/showAuditor",
+			type:"POST",
+			data:{
+				auid:auid
+			},
+			dataType:"json",
+			success:function(data){
+				if(data!=null){
+					var auditor = data[0];
+					$("#form")[0].reset();
+				    $("#auid").val(auditor.auid);
+				    $("#aupassword").val(auditor.aupassword); 
+				    $("#name").val(auditor.name);
+				    $("#mobile").val(auditor.mobile);
+				    $("#btn_Update").show();
+				    $("#btn_Delete").show();
+				    $("#btn_Insert").hide();
+					$("#dialog").dialog();
+				}
+			}
+		});
 	}
 }

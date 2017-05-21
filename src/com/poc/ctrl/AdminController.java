@@ -39,9 +39,21 @@ public class AdminController {
 	}  
 	
 	@ResponseBody
-	@RequestMapping(value="/admin/showAssessor", produces = "text/html;charset=UTF-8",method = RequestMethod.POST)
-	public String showAssessors(Assessor assessor){
-		return JSONUtils.toJSONString(adminService.showAssessors(assessor));
+	@RequestMapping(value="/admin/insertUser", produces = "text/html;charset=UTF-8",method = RequestMethod.POST)
+	public void insertUser(User user){
+		adminService.insertUser(user);
+	}  
+	
+	@ResponseBody
+	@RequestMapping(value="/admin/updateUser", produces = "text/html;charset=UTF-8",method = RequestMethod.POST)
+	public void updateUser(User user){
+		adminService.updateUser(user);
+	}  
+	
+	@ResponseBody
+	@RequestMapping(value="/admin/delUser", produces = "text/html;charset=UTF-8",method = RequestMethod.POST)
+	public void delUser(User user){
+		adminService.delUser(user);
 	}  
 	
 	@ResponseBody
@@ -51,16 +63,61 @@ public class AdminController {
 	}  
 	
 	@ResponseBody
+	@RequestMapping(value="/admin/insertAuditor", produces = "text/html;charset=UTF-8",method = RequestMethod.POST)
+	public void insertAuditor(Auditor auditor){
+		adminService.insertAuditor(auditor);
+	}  
+	
+	@ResponseBody
+	@RequestMapping(value="/admin/updateAuditor", produces = "text/html;charset=UTF-8",method = RequestMethod.POST)
+	public void updateAuditor(Auditor auditor){
+        adminService.updateAuditor(auditor);
+	}  
+	
+	@ResponseBody
+	@RequestMapping(value="/admin/delAuditor", produces = "text/html;charset=UTF-8",method = RequestMethod.POST)
+	public void delAuditor(Auditor auditor){
+		adminService.delAuditor(auditor);
+	}  
+	
+	@ResponseBody
+	@RequestMapping(value="/admin/showAssessor", produces = "text/html;charset=UTF-8",method = RequestMethod.POST)
+	public String showAssessor(Assessor assessor){
+		return JSONUtils.toJSONString(adminService.showAssessors(assessor));
+	}  
+	
+	@ResponseBody
+	@RequestMapping(value="/admin/insertAssessor", produces = "text/html;charset=UTF-8",method = RequestMethod.POST)
+	public void insertAssessor(Assessor assessor){
+		adminService.insertAssessor(assessor);
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/admin/updateAssessor", produces = "text/html;charset=UTF-8",method = RequestMethod.POST)
+	public void updateAssessor(Assessor assessor){
+		adminService.updateAssessor(assessor);
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/admin/delAssessor", produces = "text/html;charset=UTF-8",method = RequestMethod.POST)
+	public void delAssessor(Assessor assessor){
+		adminService.delAssessor(assessor);
+	}
+	
+	@ResponseBody
 	@RequestMapping(value="/admin/showClaim", produces = "text/html;charset=UTF-8",method = RequestMethod.POST)
 	public String showClaims(Claim claim){
 		return JSONUtils.toJSONString(adminService.showClaims(claim));
 	}  
+	
+	
 	
 	@ResponseBody
 	@RequestMapping(value="/admin/showPolicy", produces = "text/html;charset=UTF-8",method = RequestMethod.POST)
 	public String showPolicies(Policy policy){
 		return JSONUtils.toJSONString(adminService.showPolicies(policy));
 	}  
+	
 		
 	
 }

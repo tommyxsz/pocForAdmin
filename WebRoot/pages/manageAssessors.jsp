@@ -12,6 +12,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!-- 公共css -->
 <%@include file="common/commoncss.jsp"%>
 <!-- 自定义css -->
+<link href="<%=basePath%>css/manageAssessor.css" rel="stylesheet">
   </head>
   
   <body>
@@ -38,7 +39,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						    <th>序号</th>
 							<th>账号</th>
 							<th>姓名</th>
-							<th>性别</th>
 							<th>联系电话</th> 
 							<th>更多</th>
 						</tr>
@@ -49,6 +49,40 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</table>
 				<div id="Pagination" class="pagination"></div>
 				<div id="hiddenresult" style="display:none"></div>
+				
+				<!-- 定损员增删改查dialog界面 -->
+				<div id="dialog" role="dialog" title="定损员详情" class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-front ui-dialog-buttons ui-draggable ui-resizable" style="width: 200px; min-height: 19px; max-height: none; height: auto; display:none">
+						<h4>
+							<strong>定损员信息</strong>
+						</h4>
+						<form id="form">
+						<div>
+						<div>
+							<div class="form-control">
+								<label>账户:</label> <input id="asorid" name="asorid">
+							</div>
+							<div class="form-control">
+								<label>密码:</label> <input id="aspassword" name="aspassword">
+							</div>
+							<div class="form-control">
+								<label>姓名:</label> <input id="name" name="name" >
+							</div>
+							<!-- <div class="form-control">
+								<label>性别:</label> <input id="sex" name="sex">
+							</div> -->
+							<div class="form-control">
+								<label>电话:</label><input id="mobile" name="mobile" class="margin-repair">
+							</div>
+						</div>
+						<div class="btn-group">
+						<input type="button" value="修改" class="btn" id="btn_Update">
+						<input type="button" value="添加" class="btn" id="btn_Insert">
+						<input type="button" value="删除" class="btn" id="btn_Delete">
+						</div>
+						</div>
+						</form>
+					</div>
+				<!--定损员增删改结束  -->
 			</div>
 			</div>
 			<%@include file="common/common.jsp" %>

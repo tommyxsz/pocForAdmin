@@ -26,4 +26,8 @@ public interface AuditorMapper {
     Auditor auditorLogin(@Param("auid")String auid,@Param("aupassword")String aupassword);
     
     List<Auditor> showAuditors(Auditor auditor);
+    
+    int updateByPrimaryKeySelective(Auditor record);
+    
+    int deleteByPrimaryKey(String auid);
 }

@@ -12,6 +12,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!-- 公共css -->
 <%@include file="common/commoncss.jsp"%>
 <!-- 自定义css -->
+<link href="<%=basePath%>css/manageUser.css" rel="stylesheet">
   </head>
   
   <body>
@@ -50,6 +51,52 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</table>
 				<div id="Pagination" class="pagination"></div>
 				<div id="hiddenresult" style="display:none"></div>
+				
+				<!-- 用户删改dialog界面 -->
+				<div id="dialog" role="dialog" title="用户详情" class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-front ui-dialog-buttons ui-draggable ui-resizable" style="width: 200px; min-height: 19px; max-height: none; height: auto; display:none">
+						<h4>
+							<strong>用户信息</strong>
+						</h4>
+						<form id="form">
+						<div>
+						<div>
+							<div class="form-control">
+								<label>用户账户:</label> <input id="uid" name="uid">
+							</div>
+							<div class="form-control">
+								<label>用户密码:</label> <input id="upassword" name="upassword">
+							</div>
+							<div class="form-control">
+								<label>姓名:</label> <input id="name" name="name" >
+							</div>
+							<div class="form-control">
+								<label>性别:</label> <input id="sex" name="sex">
+							</div>
+							<div class="form-control">
+								<label>电话:</label><input id="mobile" name="mobile" class="margin-repair">
+							</div>
+							<div class="form-control">
+								<label>邮箱:</label><input id ="email" name="email" class="margin-repair">
+							</div>
+							<div class="form-control">
+								<label>地址:</label><input id ="address" name="address" class="margin-repair">
+							</div>
+							<div class="form-control">
+								<label>邮编:</label><input id ="postcode" name="postcode" class="margin-repair">
+							</div>
+							<div class="form-control">
+								<label>银行账户:</label><input id ="account" name="account" class="margin-repair">
+							</div>
+						</div>
+						<div class="btn-group">
+						<input type="button" value="修改" class="btn" id="btn_Update">
+						<input type="button" value="添加" class="btn" id="btn_Insert">
+						<input type="button" value="删除" class="btn" id="btn_Delete">
+						</div>
+						</div>
+						</form>
+					</div>
+				<!--用户增删改结束  -->
 			</div>
 			</div>
 			<%@include file="common/common.jsp" %>

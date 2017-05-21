@@ -57,37 +57,31 @@ private AdminMapper adminMapper;
 
 	@Override
 	public List<User> showUsers(User user) {
-		// TODO Auto-generated method stub
 		return userMapper.showUsers(user);
 	}
 
 	@Override
 	public List<Assessor> showAssessors(Assessor assessor) {
-		// TODO Auto-generated method stub
 		return assessorMapper.showAssessors(assessor);
 	}
 
 	@Override
 	public List<Auditor> showAuditors(Auditor auditor) {
-		// TODO Auto-generated method stub
 		return auditorMapper.showAuditors(auditor);
 	}
 
 	@Override
 	public List<Assess> showAssess(Assess assess) {
-		// TODO Auto-generated method stub
 		return assessMapper.showAssess(assess);
 	}
 
 	@Override
 	public List<Claim> showClaims(Claim claim) {
-		// TODO Auto-generated method stub
 		return claimMapper.showClaims(claim);
 	}
 
 	@Override
 	public List<Policy> showPolicies(Policy policy) {
-		// TODO Auto-generated method stub
 		return policyMapper.showPolicies(policy);
 	}
 
@@ -97,10 +91,8 @@ private AdminMapper adminMapper;
 		try {
 			md5Password = EncoderByMd5.EncoderByMd5(adminPassword);
 		} catch (NoSuchAlgorithmException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		if(!JSONUtils.toJSONString(auditorMapper.auditorLogin(adminId,md5Password)).equals("[null]")){	
@@ -109,6 +101,124 @@ private AdminMapper adminMapper;
 		}else{
 			return "fail";
 		}
+	}
+
+	@Override
+	public void insertUser(User user) {
+		String md5Password = "";
+		try {
+			md5Password = EncoderByMd5.EncoderByMd5(user.getUpassword());
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		user.setUpassword(md5Password);
+		userMapper.insertSelective(user);
+	}
+
+	@Override
+	public void delUser(User user) {
+		userMapper.deleteByPrimaryKey(user.getUid());
+	}
+
+	@Override
+	public void updateUser(User user) {
+		String md5Password = "";
+		try {
+			md5Password = EncoderByMd5.EncoderByMd5(user.getUpassword());
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		user.setUpassword(md5Password);
+		userMapper.updateByPrimaryKeySelective(user);
+	}
+
+	@Override
+	public void insertAssessor(Assessor assessor) {
+		String md5Password = "";
+		try {
+			md5Password = EncoderByMd5.EncoderByMd5(assessor.getAspassword());
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		assessor.setAspassword(md5Password);
+		assessorMapper.insertSelective(assessor);
+	}
+
+	@Override
+	public void delAssessor(Assessor assessor) {
+		assessorMapper.deleteByPrimaryKey(assessor.getAsorid());
+	}
+
+	@Override
+	public void updateAssessor(Assessor assessor) {
+		String md5Password = "";
+		try {
+			md5Password = EncoderByMd5.EncoderByMd5(assessor.getAspassword());
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		assessor.setAspassword(md5Password);
+		assessorMapper.updateByPrimaryKeySelective(assessor);
+		
+	}
+
+	@Override
+	public void insertAuditor(Auditor auditor) {
+		String md5Password = "";
+		try {
+			md5Password = EncoderByMd5.EncoderByMd5(auditor.getAupassword());
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		auditor.setAupassword(md5Password);
+		auditorMapper.insertSelective(auditor);		
+	}
+
+	@Override
+	public void delAuditor(Auditor auditor) {
+		auditorMapper.deleteByPrimaryKey(auditor.getAuid());
+	}
+
+	@Override
+	public void updateAuditor(Auditor auditor) {
+			String md5Password = "";
+			try {
+				md5Password = EncoderByMd5.EncoderByMd5(auditor.getAupassword());
+			} catch (NoSuchAlgorithmException e) {
+				e.printStackTrace();
+			} catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+			}
+			auditor.setAupassword(md5Password);
+		auditorMapper.updateByPrimaryKeySelective(auditor);
+	}
+
+	@Override
+	public void insertClaim(Claim claim) {
+		// TODO Auto-generated method stub
+		claimMapper.insertSelective(claim);
+	}
+
+	@Override
+	public void updateClaim(Claim claim) {
+		// TODO Auto-generated method stub
+		claimMapper.updateByPrimaryKeySelective(claim);
+	}
+
+	@Override
+	public void delClaim(Claim claim) {
+		// TODO Auto-generated method stub
+		claimMapper.deleteByPrimaryKey(claim.getCaseid());
 	}
 
 

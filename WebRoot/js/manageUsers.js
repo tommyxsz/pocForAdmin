@@ -3,6 +3,62 @@ $(function(){
 	$("#btn_Search").click(function(){
 		searchUser();
 	});
+	
+	
+	$("#btn_Add").click(function(){
+		$("#form")[0].reset();
+		 $("#btn_Update").hide();
+		 $("#btn_Delete").hide();
+		 $("#btn_Insert").show();
+		 $("#dialog").dialog();
+	});
+	
+	
+	$("#btn_Insert").click(function(){
+		$.ajax({
+			url:"/pocForAdmin/admin/insertUser",
+			type:"POST",
+			data:$("#form").serialize(),
+			success:function(){
+				alert("添加成功");
+				showUser();
+			},
+			error:function(data,XMLHttpRequest, textStatus, errorThrow){
+				alert("账户已经存在了,请更换");
+	    },
+			
+		});
+	});
+	
+	$("#btn_Update").click(function(){
+		$.ajax({
+			url:"/pocForAdmin/admin/updateUser",
+			type:"POST",
+			data:$("#form").serialize(),
+			success:function(){
+				alert("修改成功");
+				selectUser();
+				showUser();
+			},
+			error:function(data,XMLHttpRequest, textStatus, errorThrow){
+				alert("账户已经存在了,请更换");
+			}
+		});
+	});
+	
+	$("#btn_Delete").click(function(){
+		$.ajax({
+			url:"/pocForAdmin/admin/delUser",
+			type:"POST",
+			data:$("#form").serialize(),
+			success:function(){
+				alert("删除成功");
+				$("button[title='close']").click();
+				showUser();
+			},
+	});
+	});
+	
 });
 
 //查看所有保单
@@ -23,7 +79,7 @@ var showUser =function(){
 						"<td>"+User['mobile'] +"</td>"+
 						"<td>"+User['email'] +"</td>"+
 						"<td>"+User['postcode'] +"</td>"+
-						"<td><a href='#'>详 情</a></td></tr>";
+						"<td><a href='#' onclick='selectUser(this)' abc='"+User['uid']+"'>详 情</a></td></tr>";
 					});
 					$("#hiddenresult").html(tableInfo);
 					$("#Pagination").pagination(data.length, {
@@ -74,7 +130,7 @@ var searchUser = function(){
 							"<td>"+User['mobile'] +"</td>"+
 							"<td>"+User['email'] +"</td>"+
 							"<td>"+User['postcode'] +"</td>"+
-							"<td><a href='#'>详 情</a></td></tr>";
+							"<td><a href='#' onclick='selectUser(this)' abc='"+User['uid']+"'>详 情</a></td></tr>";
 						});
 						$("#hiddenresult").html(tableInfo);
 						$("#Pagination").pagination(data.length, {
@@ -90,3 +146,37 @@ var searchUser = function(){
 		 })
 	}
 }
+
+var selectUser = function(a){
+	var uid= $(a).attr("abc");
+	if( uid !=null){
+		$.ajax({
+			url:"/pocForAdmin/admin/showUser",
+			type:"POST",
+			data:{
+				uid:uid
+			},
+			dataType:"json",
+			success:function(data){
+				if(data!=null){
+					var user = data[0];
+					$("#form")[0].reset();
+				    $("#uid").val(user.uid);
+				    $("#upassword").val(user.upassword); 
+				    $("#name").val(user.name);
+				    $("#sex").val(user.sex);
+				    $("#mobile").val(user.mobile);
+				    $("#email").val(user.email);
+				    $("#address").val(user.address);
+				    $("#postcode").val(user.postcode);
+				    $("#account").val(user.account);
+				    $("#btn_Update").show();
+				    $("#btn_Delete").show();
+				    $("#btn_Insert").hide();
+					$("#dialog").dialog();
+				}
+			}
+		});
+	}
+}
+

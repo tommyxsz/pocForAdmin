@@ -29,4 +29,29 @@ public interface AdminService {
 	
 	String adminLogin(String adminId,String adminPassword,HttpServletResponse response);
 	
+	void insertUser(User user);
+	
+	void delUser(User user);
+	
+	void updateUser(User user);
+	
+	void insertAssessor(Assessor assessor);
+
+	void delAssessor(Assessor assessor);
+	
+	void updateAssessor(Assessor assessor);
+	
+	void insertAuditor(Auditor auditor);
+	
+	void delAuditor(Auditor auditor);
+	
+	void updateAuditor(Auditor auditor);
+	
+	void insertClaim(Claim claim);
+	
+	void updateClaim(Claim claim);
+	
+	void delClaim(Claim claim);
+	
+	
 }

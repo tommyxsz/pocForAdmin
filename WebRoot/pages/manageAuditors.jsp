@@ -12,6 +12,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!-- 公共css -->
 <%@include file="common/commoncss.jsp"%>
 <!-- 自定义css -->
+<link href="<%=basePath%>css/manageAuditor.css" rel="stylesheet">
   </head>
   
   <body>
@@ -48,6 +49,37 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</table>
 				<div id="Pagination" class="pagination"></div>
 				<div id="hiddenresult" style="display:none"></div>
+				
+				<!-- 审批员增删改查 -->
+				<div id="dialog" role="dialog" title="审批员详情" class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-front ui-dialog-buttons ui-draggable ui-resizable" style="width: 200px; min-height: 19px; max-height: none; height: auto; display:none">
+						<h4>
+							<strong>审批员信息</strong>
+						</h4>
+						<form id="form">
+						<div>
+						<div>
+							<div class="form-control">
+								<label>账户:</label> <input id="auid" name="auid">
+							</div>
+							<div class="form-control">
+								<label>密码:</label> <input id="aupassword" name="aupassword">
+							</div>
+							<div class="form-control">
+								<label>姓名:</label> <input id="name" name="name" >
+							</div>
+							<div class="form-control">
+								<label>电话:</label><input id="mobile" name="mobile" class="margin-repair">
+							</div>
+						</div>
+						<div class="btn-group">
+						<input type="button" value="修改" class="btn" id="btn_Update">
+						<input type="button" value="添加" class="btn" id="btn_Insert">
+						<input type="button" value="删除" class="btn" id="btn_Delete">
+						</div>
+						</div>
+						</form>
+					</div>
+				<!-- 审批员增删改查结束 -->
 			</div>
 			</div>
 			<%@include file="common/common.jsp" %>
