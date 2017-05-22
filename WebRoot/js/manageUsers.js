@@ -7,6 +7,7 @@ $(function(){
 	
 	$("#btn_Add").click(function(){
 		$("#form")[0].reset();
+		$("#uid").removeAttr("readonly");
 		 $("#btn_Update").hide();
 		 $("#btn_Delete").hide();
 		 $("#btn_Insert").show();
@@ -161,7 +162,7 @@ var selectUser = function(a){
 				if(data!=null){
 					var user = data[0];
 					$("#form")[0].reset();
-				    $("#uid").val(user.uid);
+				    $("#uid").attr("readonly","readonly").val(user.uid);
 				    $("#upassword").val(user.upassword); 
 				    $("#name").val(user.name);
 				    $("#sex").val(user.sex);
