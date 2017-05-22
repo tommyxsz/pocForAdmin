@@ -24,6 +24,7 @@
     <result column="status" property="status" jdbcType="VARCHAR" />
     <result column="apply_User" property="applyUser" jdbcType="VARCHAR" />
     <result column="create_Time" property="createTime" jdbcType="VARCHAR" />
+    <result column="case_Describe" property="caseDescribe" jdbcType="LONGVARCHAR" />
     <result column="reason" property="reason" jdbcType="VARCHAR" />
   </resultMap>
   <resultMap id="ResultMapWithBLOBs" type="com.poc.db.model.Claim" extends="BaseResultMap" >
@@ -41,7 +42,7 @@
       This element was generated on Wed Mar 08 14:38:21 CST 2017.
     -->
     caseid, id, a1id, a2id, recognizee, plate_Number, case_TIme, case_Place, report_Time, 
-    report_Person, report_Person_Mobile, driver, driver_Mobile, claim_Time, status, apply_User,create_Time,reason
+    report_Person, report_Person_Mobile, driver, driver_Mobile, claim_Time, status, apply_User,create_Time,reason,case_Describe
   </sql>
   <sql id="Blob_Column_List" >
     <!--
@@ -124,9 +125,6 @@
       <if test="caseid != null" >
         caseid,
       </if>
-      <if test="id != null" >
-        id,
-      </if>
       <if test="a1id != null" >
         a1id,
       </if>
@@ -173,15 +171,12 @@
         case_Describe,
       </if>
       <if test="reason!=null">
-      reason,
+         reason,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="caseid != null" >
         #{caseid,jdbcType=VARCHAR},
-      </if>
-      <if test="id != null" >
-        #{id,jdbcType=INTEGER},
       </if>
       <if test="a1id != null" >
         #{a1id,jdbcType=VARCHAR},
@@ -229,10 +224,11 @@
         #{caseDescribe,jdbcType=LONGVARCHAR},
       </if>
       <if test="reason!=null">
-      #{reason,jdbcType=VARCHAR}
+        #{reason,jdbcType=VARCHAR}
       </if>
     </trim>
   </insert>
+  
   <update id="updateByPrimaryKeySelective" parameterType="com.poc.db.model.Claim" >
     <!--
       WARNING - @mbggenerated
@@ -241,9 +237,6 @@
     -->
     update claim
     <set >
-      <if test="id != null" >
-        id = #{id,jdbcType=INTEGER},
-      </if>
       <if test="a1id != null" >
         a1id = #{a1id,jdbcType=VARCHAR},
       </if>
@@ -290,7 +283,7 @@
         case_Describe = #{caseDescribe,jdbcType=LONGVARCHAR},
       </if>
        <if test="reason!=null">
-      reason =  #{reason,jdbcType=VARCHAR}
+        reason =  #{reason,jdbcType=VARCHAR}
       </if>
     </set>
     where caseid = #{caseid,jdbcType=VARCHAR}
@@ -302,7 +295,7 @@
       This element was generated on Wed Mar 08 14:38:21 CST 2017.
     -->
     update claim
-    set id = #{id,jdbcType=INTEGER},
+    set
       a1id = #{a1id,jdbcType=VARCHAR},
       a2id = #{a2id,jdbcType=VARCHAR},
       recognizee = #{recognizee,jdbcType=VARCHAR},

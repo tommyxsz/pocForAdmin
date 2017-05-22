@@ -2,6 +2,7 @@ package com.poc.service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.poc.db.model.Admin;
@@ -47,11 +48,15 @@ public interface AdminService {
 	
 	void updateAuditor(Auditor auditor);
 	
-	void insertClaim(Claim claim);
+	void insertClaim(Claim claim,HttpServletRequest request);
 	
 	void updateClaim(Claim claim);
 	
 	void delClaim(Claim claim);
 	
+	void insertPolicy(Policy policy);
 	
+	void updatePolicy(Policy policy);
+	
+	void delPolicy(Policy policy);
 }

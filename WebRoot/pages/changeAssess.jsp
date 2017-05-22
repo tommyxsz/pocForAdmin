@@ -16,8 +16,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!-- 公共css -->
 <%@include file="common/commoncss.jsp"%>
 <!-- 自定义css -->
-<link rel="stylesheet" type="text/css"
-	href="<%=basePath%>css/changeAssess.css">
+<link rel="stylesheet" type="text/css" href="<%=basePath%>css/changeAssess.css">
 </head>
 
 <body>

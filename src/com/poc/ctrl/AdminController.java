@@ -1,5 +1,7 @@
 package com.poc.ctrl;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.alibaba.fastjson.JSON;
 import com.poc.db.model.Assess;
 import com.poc.db.model.Assessor;
 import com.poc.db.model.Auditor;
@@ -109,7 +110,24 @@ public class AdminController {
 	public String showClaims(Claim claim){
 		return JSONUtils.toJSONString(adminService.showClaims(claim));
 	}  
+
+	@ResponseBody
+	@RequestMapping(value="/admin/insertClaim", produces = "text/html;charset=UTF-8",method = RequestMethod.POST)
+	public void insertClaim(Claim claim,HttpServletRequest request){
+		adminService.insertClaim(claim,request);
+	}  
 	
+	@ResponseBody
+	@RequestMapping(value="/admin/delClaim", produces = "text/html;charset=UTF-8",method = RequestMethod.POST)
+	public void delClaim(Claim claim){
+		adminService.delClaim(claim);
+	}  
+	
+	@ResponseBody
+	@RequestMapping(value="/admin/updateClaim", produces = "text/html;charset=UTF-8",method = RequestMethod.POST)
+	public void updateClaim(Claim claim){
+		adminService.updateClaim(claim);
+	}  
 	
 	
 	@ResponseBody
@@ -118,6 +136,22 @@ public class AdminController {
 		return JSONUtils.toJSONString(adminService.showPolicies(policy));
 	}  
 	
-		
+	@ResponseBody
+	@RequestMapping(value="/admin/insertPolicy", produces = "text/html;charset=UTF-8",method = RequestMethod.POST)
+	public void insertPolicy(Policy policy){
+		adminService.insertPolicy(policy);
+	}  
+	
+	@ResponseBody
+	@RequestMapping(value="/admin/delPolicy", produces = "text/html;charset=UTF-8",method = RequestMethod.POST)
+	public void delPolicy(Policy policy){
+		adminService.delPolicy(policy);
+	}  
+	
+	@ResponseBody
+	@RequestMapping(value="/admin/updatePolicy", produces = "text/html;charset=UTF-8",method = RequestMethod.POST)
+	public void updatePolicy(Policy policy){
+		adminService.updatePolicy(policy); 
+	}  
 	
 }

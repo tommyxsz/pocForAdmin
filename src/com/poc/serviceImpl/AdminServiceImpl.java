@@ -2,8 +2,11 @@ package com.poc.serviceImpl;
 
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
@@ -204,8 +207,13 @@ private AdminMapper adminMapper;
 	}
 
 	@Override
-	public void insertClaim(Claim claim) {
-		// TODO Auto-generated method stub
+	public void insertClaim(Claim claim,HttpServletRequest request) {
+		claim.setApplyUser(CookieUtil.getCookieByName(request,"loginedId").getValue().split(",")[0]);
+		claim.setStatus("待审批");//0表示用户申请,1表示审核成功
+		Date date = new Date();
+		SimpleDateFormat myformat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		claim.setClaimTime(myformat.format(date));
+		claim.setCreateTime(myformat.format(date));
 		claimMapper.insertSelective(claim);
 	}
 
@@ -219,6 +227,24 @@ private AdminMapper adminMapper;
 	public void delClaim(Claim claim) {
 		// TODO Auto-generated method stub
 		claimMapper.deleteByPrimaryKey(claim.getCaseid());
+	}
+
+	@Override
+	public void insertPolicy(Policy policy) {
+		// TODO Auto-generated method stub
+		policyMapper.insertSelective(policy);
+	}
+
+	@Override
+	public void updatePolicy(Policy policy) {
+		// TODO Auto-generated method stub
+		policyMapper.updateByPrimaryKeySelective(policy);
+	}
+
+	@Override
+	public void delPolicy(Policy policy) {
+		// TODO Auto-generated method stub
+		policyMapper.deleteByPrimaryKey(policy.getPolicyid());
 	}
 
 

@@ -3,6 +3,9 @@ $(function(){
 	$("#btn_Search").click(function(){
 		searchClaim();
 	});
+	$("#btn_Add").click(function(){
+		window.open("/pocForAdmin/pages/changeClaim.jsp"); 
+	});
 });
 
 //查看所有保单
@@ -18,11 +21,11 @@ var showClaim =function(){
 					$.each(data,function(i,Claim){
 						i++;
 						tableInfo +="<tr><td>" +i+"</td>"+
-						"<td>"+Claim['id'] +"</td>"+
+						"<td>"+Claim['caseid'] +"</td>"+
 						"<td>"+Claim['recognizee'] +"</td>"+
 						"<td>"+Claim['plateNumber'] +"</td>"+
 						"<td>"+Claim['createTime'] +"</td>"+
-						"<td><a href='#'>详 情</a></td></tr>";
+						"<td><a href='#' onclick='updateClaim(this)' abc='"+Claim['caseid']+"'>详 情</a></td></tr>";
 					});
 					$("#hiddenresult").html(tableInfo);
 					$("#Pagination").pagination(data.length, {
@@ -73,7 +76,7 @@ var searchClaim =function(){
 						"<td>"+Claim['recognizee'] +"</td>"+
 						"<td>"+Claim['plateNumber'] +"</td>"+
 						"<td>"+Claim['createTime'] +"</td>"+
-						"<td><a href='#'>详 情</a></td></tr>";
+						"<td><a href='#' onclick='updateClaim(this)' abc='"+Claim['caseid']+"'>详 情</a></td></tr>";
 					});
 					$("#hiddenresult").html(tableInfo);
 					$("#Pagination").pagination(data.length, {
@@ -88,4 +91,9 @@ var searchClaim =function(){
 		 } 
 	 })
 	}
+}
+
+var updateClaim = function(a){
+	var caseid = $(a).attr("abc");
+	window.open("/pocForAdmin/pages/changeClaim.jsp?caseid="+caseid); 
 }
