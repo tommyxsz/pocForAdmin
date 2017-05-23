@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    <!-- 公共css -->
 <%@include file="common/commoncss.jsp"%>
 <!-- 自定义css -->
-<link href="<%=basePath%>css/claimApplication.css" rel="stylesheet">
+<link href="<%=basePath%>css/changeClaim.css" rel="stylesheet">
   </head>
   <body>
     <div id="wrapper">
